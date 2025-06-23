@@ -32,3 +32,17 @@ function calcular() {
     document.getElementById('pitsNecessarios').innerText = `Pits necessários: ${pitsNecessarios}`;
     document.getElementById('tempoTotal').innerText = `Tempo total estimado: ${horas} horas e ${minutos} minutos`;
 }
+function abrirInfo() {
+    document.getElementById('infoModal').style.display = "block";
+}
+
+function fecharInfo() {
+    document.getElementById('infoModal').style.display = "none";
+}
+
+
+window.onclick = function(event) {
+    const modal = document.getElementById('infoModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
