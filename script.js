@@ -1,9 +1,13 @@
 function calcular() {
+    document.getElementById('xpFaltante').innerText = `XP restante até Paragon 300: ${xpFaltante.toLocaleString('pt-BR')} XP`;
+    document.getElementById('pitsNecessarios').innerText = `Pits necessários: ${pitsNecessarios}`;
+    document.getElementById('tempoTotal').innerText = `Tempo total estimado: ${horas} horas e ${minutos} minutos`;
+    
     const nivelAtual = parseInt(document.getElementById('nivelAtual').value);
     const tempoPorPit = parseFloat(document.getElementById('tempoPit').value);
     const xpPorPit = parseFloat(document.getElementById('xpPit').value) * 1000000;
     
-  // 24 bilhões XP até Paragon 300
+    // 24 bilhões XP até Paragon 300
     const xpTotalAte300 = 24000000000; 
 
     // Estimativa de progressão pelo gráfico
@@ -22,15 +26,9 @@ function calcular() {
 
     const xpAtual = (percentualAtual / 100) * xpTotalAte300;
     const xpFaltante = xpTotalAte300 - xpAtual;
-
     const pitsNecessarios = Math.ceil(xpFaltante / xpPorPit);
     const tempoTotalMinutos = pitsNecessarios * tempoPorPit;
     const horas = Math.floor(tempoTotalMinutos / 60);
     const minutos = Math.round(tempoTotalMinutos % 60);
-
-    document.getElementById('xpFaltante').innerText = `XP restante até Paragon 300: ${xpFaltante.toLocaleString('pt-BR')} XP`;
-    document.getElementById('pitsNecessarios').innerText = `Pits necessários: ${pitsNecessarios}`;
-    document.getElementById('tempoTotal').innerText = `Tempo total estimado: ${horas} horas e ${minutos} minutos`;
     
-
 }
