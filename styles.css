@@ -1,11 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     background: url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/05/diablo-4-the-pit-explained.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: fill;
     margin: 0;
     padding: 0;
     color: #f0f0f0;
-    margin-top: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
