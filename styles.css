@@ -5,21 +5,25 @@ body {
     margin: 0;
     padding: 0;
     color: #f0f0f0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px); 
-    
-    
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .container {
-    background-color: rgba(0, 0, 0, 0.75); 
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.7);
     max-width: 500px;
-    width: 100%;
+    width: 90%;
+    box-sizing: border-box;
 }
-
 
 h1 {
     text-align: center;
