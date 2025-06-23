@@ -1,23 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('pit-background.avif') no-repeat center center fixed;
+    background: url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/05/diablo-4-the-pit-explained.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
     color: #f0f0f0;
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px); /* Para compatibilidade com Safari */
+    -webkit-backdrop-filter: blur(4px); 
+    
     
 }
 
 .container {
-    background-color: #262626;
+    background-color: rgba(0, 0, 0, 0.75); 
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.7);
     max-width: 500px;
     width: 100%;
 }
+
 
 h1 {
     text-align: center;
