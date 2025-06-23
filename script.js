@@ -31,8 +31,7 @@ function calcular() {
     document.getElementById('xpFaltante').innerText = `XP restante até Paragon 300: ${xpFaltante.toLocaleString('pt-BR')} XP`;
     document.getElementById('pitsNecessarios').innerText = `Pits necessários: ${pitsNecessarios}`;
     document.getElementById('tempoTotal').innerText = `Tempo total estimado: ${horas} horas e ${minutos} minutos`;
-}
-function abrirInfo() {
+    function abrirInfo() {
     document.getElementById('infoModal').style.display = "block";
 }
 
@@ -46,3 +45,5 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+
+}
