@@ -1,7 +1,4 @@
 function calcular() {
-    document.getElementById('xpFaltante').innerText = `XP restante até Paragon 300: ${xpFaltante.toLocaleString('pt-BR')} XP`;
-    document.getElementById('pitsNecessarios').innerText = `Pits necessários: ${pitsNecessarios}`;
-    document.getElementById('tempoTotal').innerText = `Tempo total estimado: ${horas} horas e ${minutos} minutos`;
     
     const nivelAtual = parseInt(document.getElementById('nivelAtual').value);
     const tempoPorPit = parseFloat(document.getElementById('tempoPit').value);
@@ -30,5 +27,8 @@ function calcular() {
     const tempoTotalMinutos = pitsNecessarios * tempoPorPit;
     const horas = Math.floor(tempoTotalMinutos / 60);
     const minutos = Math.round(tempoTotalMinutos % 60);
+    document.getElementById('xpFaltante').innerText = `XP restante até Paragon 300: ${xpFaltante.toLocaleString('pt-BR')} XP`;
+    document.getElementById('pitsNecessarios').innerText = `Pits necessários: ${pitsNecessarios}`;
+    document.getElementById('tempoTotal').innerText = `Tempo total estimado: ${horas} horas e ${minutos} minutos`;
     
 }
