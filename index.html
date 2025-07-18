@@ -1,39 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paragon Pit XP Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diablo 4 Paragon XP Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Paragon Pit XP Calculator</h1>
+    <h1>Paragon XP Calculator</h1>
+    
+    <label for="currentLevel">Current Level (0 - 300):</label>
+    <input type="number" id="currentLevel" min="0" max="300" />
 
-    <label for="start-level">Current Paragon Level:</label>
-    <input type="number" id="start-level" min="0" max="300" value="0">
+    <label for="targetLevel">Target Level (1 - 300):</label>
+    <input type="number" id="targetLevel" min="1" max="300" />
 
-    <label for="target-level">Target Paragon Level:</label>
-    <input type="number" id="target-level" min="1" max="300" value="100">
-
-    <label for="pit-tier">Pit Tier:</label>
-    <select id="pit-tier">
-      <option value="1">Tier 1</option>
-      <option value="10">Tier 10</option>
-      <option value="20">Tier 20</option>
-      <option value="30">Tier 30</option>
-      <option value="40">Tier 40</option>
-      <option value="50">Tier 50</option>
-      <option value="60">Tier 60</option>
-      <option value="70">Tier 70</option>
-      <option value="80">Tier 80</option>
-      <option value="90">Tier 90</option>
-      <option value="100">Tier 100</option>
+    <label for="pitLevel">Pit Level:</label>
+    <select id="pitLevel">
+      <!-- Pit levels 1 to 100 -->
     </select>
 
-    <div class="checkboxes">
-      <label><input type="checkbox" id="elixir"> Using Elixir (+5% XP)</label>
-      <label><input type="checkbox" id="incense"> Using Incense (+5% XP)</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="elixir" /> Using Elixir (+5% XP)</label>
+      <label><input type="checkbox" id="incense" /> Using Incense (+5% XP)</label>
     </div>
 
     <button onclick="calculateRuns()">Calculate</button>
