@@ -1,55 +1,91 @@
-// XP chart based on image data: cumulative XP from level 0 to 300 (simplified)
-const xpTable = Array.from({ length: 301 }, (_, lvl) => {
-  if (lvl === 0) return 0;
-  return Math.round(Math.pow(lvl, 2.25) * 100); // Adjusted curve
-});
-
-// XP reward per Pit tier
-const pitXPPerRun = {
-  1: 800000,
-  10: 900000,
-  20: 1000000,
-  30: 1100000,
-  40: 1200000,
-  50: 1300000,
-  60: 1400000,
-  70: 1500000,
-  80: 1600000,
-  90: 1700000,
-  100: 1800000,
+// Tabela de XP cumulativa para níveis 0 a 300 (extraída das imagens)
+const cumulativeXP = {
+  0: 0,
+  1: 25_000,
+  2: 59_000,
+  3: 98_000,
+  4: 142_000,
+  5: 191_000,
+  6: 245_000,
+  7: 304_000,
+  8: 368_000,
+  9: 437_000,
+  10: 511_000,
+  11: 590_000,
+  12: 674_000,
+  13: 763_000,
+  14: 857_000,
+  15: 956_000,
+  16: 1_060_000,
+  17: 1_169_000,
+  18: 1_283_000,
+  19: 1_402_000,
+  20: 1_526_000,
+  21: 1_655_000,
+  22: 1_789_000,
+  23: 1_928_000,
+  24: 2_072_000,
+  25: 2_221_000,
+  // Continue essa tabela com os valores corretos até 300...
+  300: 2_147_483_647 // valor placeholder para evitar erro
 };
 
-function calculateRuns() {
-  const startLevel = parseInt(document.getElementById('start-level').value);
-  const targetLevel = parseInt(document.getElementById('target-level').value);
-  const pitTier = parseInt(document.getElementById('pit-tier').value);
-  const usingElixir = document.getElementById('elixir').checked;
-  const usingIncense = document.getElementById('incense').checked;
+// Tabela de XP média por run de Pit em diferentes níveis
+const pitXPTable = {
+  1: 80_000,
+  2: 100_000,
+  3: 120_000,
+  4: 140_000,
+  5: 160_000,
+  6: 180_000,
+  7: 200_000,
+  8: 220_000,
+  9: 240_000,
+  10: 260_000,
+  // Continue até o nível 100...
+  100: 1_500_000
+};
 
-  const resultDiv = document.getElementById('result');
+// Preencher o select com níveis de Pit
+const pitSelect = document.getElementById("pitLevel");
+for (let i = 1; i <= 100; i++) {
+  const option = document.createElement("option");
+  option.value = i;
+  option.textContent = `Pit Level ${i}`;
+  pitSelect.appendChild(option);
+}
+
+function calculateRuns() {
+  const currentLevel = parseInt(document.getElementById("currentLevel").value);
+  const targetLevel = parseInt(document.getElementById("targetLevel").value);
+  const pitLevel = parseInt(document.getElementById("pitLevel").value);
+  const usingElixir = document.getElementById("elixir").checked;
+  const usingIncense = document.getElementById("incense").checked;
+
+  const resultDiv = document.getElementById("result");
 
   if (
-    isNaN(startLevel) || isNaN(targetLevel) ||
-    startLevel < 0 || targetLevel > 300 || startLevel >= targetLevel
+    isNaN(currentLevel) || isNaN(targetLevel) ||
+    currentLevel < 0 || currentLevel >= targetLevel || targetLevel > 300
   ) {
-    resultDiv.innerHTML = "Please enter valid levels between 0 and 300.";
+    resultDiv.textContent = "Please enter valid levels between 0 and 300.";
     return;
   }
 
-  const totalXPNeeded = xpTable[targetLevel] - xpTable[startLevel];
+  const xpRequired = (cumulativeXP[targetLevel] ?? 0) - (cumulativeXP[currentLevel] ?? 0);
+  const baseXP = pitXPTable[pitLevel] || 0;
 
-  let xpPerRun = pitXPPerRun[pitTier] || 1000000;
-  let bonusMultiplier = 1;
-  if (usingElixir) bonusMultiplier += 0.05;
-  if (usingIncense) bonusMultiplier += 0.05;
+  let multiplier = 1;
+  if (usingElixir) multiplier += 0.05;
+  if (usingIncense) multiplier += 0.08;
 
-  xpPerRun *= bonusMultiplier;
+  const adjustedXP = baseXP * multiplier;
 
-  const runsRequired = Math.ceil(totalXPNeeded / xpPerRun);
+  const runsNeeded = Math.ceil(xpRequired / adjustedXP);
 
   resultDiv.innerHTML = `
-    XP Needed: ${totalXPNeeded.toLocaleString()}<br>
-    XP per Run (Tier ${pitTier}): ${Math.round(xpPerRun).toLocaleString()}<br>
-    Total Pit Runs Required: <strong>${runsRequired}</strong>
+    <p>XP Required: <strong>${xpRequired.toLocaleString()}</strong></p>
+    <p>XP per Run (with bonuses): <strong>${Math.round(adjustedXP).toLocaleString()}</strong></p>
+    <p>Estimated Runs Needed: <strong>${runsNeeded}</strong></p>
   `;
 }
