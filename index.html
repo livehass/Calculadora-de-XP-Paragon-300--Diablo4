@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diablo 4 Paragon XP Calculator</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Pit XP Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Paragon XP Calculator</h1>
-    
-    <label for="currentLevel">Current Level (0 - 300):</label>
-    <input type="number" id="currentLevel" min="0" max="300" />
+    <h1>Pit XP Calculator</h1>
 
-    <label for="targetLevel">Target Level (1 - 300):</label>
-    <input type="number" id="targetLevel" min="1" max="300" />
+    <label for="nivelAtual">Current Paragon Level:</label>
+    <input type="number" id="nivelAtual" min="1" max="300" value="1">
 
-    <label for="pitLevel">Pit Level:</label>
-    <select id="pitLevel">
-      <!-- Pit levels 1 to 100 -->
+    <label for="pitSelect">Select Pit Difficulty:</label>
+    <select id="pitSelect">
+      <option value="6">Pit 1-6 (12M XP)</option>
+      <option value="7">Pit 7 (15M XP)</option>
+      <option value="8">Pit 8 (18M XP)</option>
+      <option value="9">Pit 9 (21M XP)</option>
+      <option value="10">Pit 10 (24M XP)</option>
     </select>
 
-    <div class="checkbox-group">
-      <label><input type="checkbox" id="elixir" /> Using Elixir (+5% XP)</label>
-      <label><input type="checkbox" id="incense" /> Using Incense (+6% XP)</label>
+    <label for="tempoPit">Time per Pit run (in minutes):</label>
+    <input type="number" id="tempoPit" min="1" value="3">
+
+    <div class="checkboxes">
+      <label><input type="checkbox" id="elixir"> Using Elixir (+5%)</label>
+      <label><input type="checkbox" id="incenso"> Using Incense (+5%)</label>
     </div>
 
-    <button onclick="calculateRuns()">Calculate</button>
+    <button onclick="calcular()">Calculate</button>
 
-    <div id="result"></div>
+    <div id="results">
+      <p id="xpFaltante"></p>
+      <p id="pitsNecessarios"></p>
+      <p id="tempoTotal"></p>
+    </div>
   </div>
 
   <script src="script.js"></script>
