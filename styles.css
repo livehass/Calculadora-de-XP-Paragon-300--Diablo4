@@ -13,7 +13,6 @@ body {
     -webkit-backdrop-filter: blur(4px);
 }
 
-
 .container {
     background-color: rgba(0, 0, 0, 0.75);
     padding: 30px;
@@ -29,7 +28,6 @@ h1 {
     color: #00ff88;
 }
 
-
 .input-group {
     margin: 15px 0;
 }
@@ -41,7 +39,6 @@ label {
     color: #ccc;
 }
 
-
 input, select {
     width: 100%;
     padding: 8px;
@@ -50,7 +47,6 @@ input, select {
     background-color: #333;
     color: #fff;
 }
-
 
 button {
     width: 100%;
@@ -67,7 +63,6 @@ button {
 button:hover {
     background-color: #00cc6e;
 }
-
 
 .info-btn {
     width: 100%;
@@ -87,6 +82,13 @@ button:hover {
     color: #000;
 }
 
+.checkboxes {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #ccc;
+}
 
 .result {
     margin-top: 20px;
@@ -99,7 +101,6 @@ button:hover {
 .result p {
     margin: 8px 0;
 }
-
 
 .modal {
     display: none;
@@ -137,7 +138,6 @@ button:hover {
 .close-btn:hover {
     color: #ff5050;
 }
-
 
 footer {
     width: 100%;
