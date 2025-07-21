@@ -1,19 +1,19 @@
-
+// Dark Mode Configuration
 function setupDarkMode() {
   const darkModeToggle = document.getElementById('darkModeToggle');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-
+  // Check system preference or local storage
   const currentTheme = localStorage.getItem('theme') ||
     (prefersDarkScheme.matches ? 'dark' : 'light');
 
-
+  // Apply initial theme
   if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
   }
 
-
+  // Toggle theme when button is clicked
   darkModeToggle.addEventListener('click', function () {
     let theme;
     if (document.documentElement.getAttribute('data-theme') === 'dark') {
@@ -55,7 +55,7 @@ const pitData = [
   { tier: 150, clearXP: 5.5, completionXP: 11.0 }
 ];
 
-
+// Function to get accumulated XP
 function getXPFromLevel(level) {
   if (level >= 300) return XP_TOTAL_TO_300;
 
@@ -82,7 +82,7 @@ function getXPFromLevel(level) {
   return lowerBound.xp + (xpRange * progress);
 }
 
-
+// Main calculation function
 function calculate() {
   const currentLevel = parseInt(document.getElementById("currentLevel").value);
   const timePerPit = parseFloat(document.getElementById("pitTime").value);
@@ -141,7 +141,7 @@ function calculate() {
   if (timePerPit > 5) efficiencyRating = "Average";
   if (timePerPit > 10) efficiencyRating = "Poor";
 
-  document.getElementById("remainingXP").innerText = `XP remaining to Paragon 300: ${(xpRemaining * 1000000).toLocaleString()} XP`;
+  document.getElementById("remainingXP").innerText = `XP remaining to Paragon 300: ${(xpRemaining * 1000000).toLocaleString('pt-BR')} XP`;
   document.getElementById("pitsRequired").innerText = `Pits required: ${pitsRequired} (Tier ${pitTier})`;
   document.getElementById("totalTime").innerText = `Estimated total time: ${hours}h ${minutes}m`;
   document.getElementById("efficiency").innerHTML = `
@@ -151,11 +151,11 @@ function calculate() {
   `;
 }
 
-
+// Initialization
 document.addEventListener('DOMContentLoaded', function () {
   setupDarkMode();
 
-
+  // Only fill Pit Tier select if it exists on the page
   const pitTierSelect = document.getElementById("pitTier");
   if (pitTierSelect) {
     pitData.forEach(pit => {
