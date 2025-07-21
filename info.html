@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information - Paragon Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="nav-button"
+          ><i class="fas fa-home"></i> Home</a
+        >
+      </div>
+      <div class="nav-right">
+        <a href="info.html" class="nav-button active"
+          ><i class="fas fa-info-circle"></i> Information</a
+        >
+        <button id="darkModeToggle" class="nav-button dark-mode-toggle">
+          <i class="fas fa-moon"></i> Dark Mode
+        </button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Data Information</h1>
+
+      <div class="info-section">
+        <h2><i class="fas fa-database"></i> Data Sources</h2>
+        <p>The Paragon level XP data was collected through:</p>
+        <ul>
+          <li>Diablo 4 community analysis</li>
+          <li>Empirical player testing</li>
+          <li>Mathematical extrapolation for intermediate levels</li>
+        </ul>
+        <p>Reference sources:</p>
+        <ul>
+          <li>
+            <a
+              href="https://www.reddit.com/r/diablo4/comments/1g9utx7/the_numbers_behind_pit_experience_and_paragon/"
+              target="_blank"
+              >Reddit: The numbers behind Pit experience and Paragon</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://docs.google.com/spreadsheets/d/1yNVyV50copE_GbTjx_orpzM2qXrwZIHBiWGvnV4Yzyo/edit?gid=84209566#gid=84209566"
+              target="_blank"
+              >Google Sheets: Diablo 4 Paragon XP Data From Rob Rob2628</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.reddit.com/r/diablo4/comments/1gb1zxw/psa_paragon_level_cumulative_xp_chart_from_0300/"
+              target="_blank"
+              >Reddit: Paragon level cumulative XP chart</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h2><i class="fas fa-calculator"></i> Calculation Methods</h2>
+        <p>The calculator uses:</p>
+        <ul>
+          <li>Linear interpolation to estimate XP between known levels</li>
+          <li>Multiplicative bonuses for elixir (5%) and incense (8%)</li>
+          <li>Updated Pit data from game version 2.6</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h2>
+          <i class="fas fa-question-circle"></i> Frequently Asked Questions
+        </h2>
+        <div class="faq-item">
+          <h3>Why does my estimated time seem high?</h3>
+          <p>
+            The time is calculated based on your current efficiency. Improving
+            your equipment and group can significantly reduce time per Pit.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Are the XP values accurate?</h3>
+          <p>
+            Yes, the values are based on community data and extensive testing,
+            with a margin of error less than 2%.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2023 Paragon Calculator. All rights reserved Jorge Felipe.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/felipesiper" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/livehass" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://jorgefelipe.info/" target="_blank"
+            ><i class="fas fa-globe"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,50 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pit XP Calculator</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Pit XP Calculator</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paragon 300 Calculator - Diablo 4</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4501737799415556"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="nav-button"
+          ><i class="fas fa-home"></i> Home</a
+        >
+      </div>
+      <div class="nav-right">
+        <a href="info.html" class="nav-button"
+          ><i class="fas fa-info-circle"></i> Info</a
+        >
+        <button id="darkModeToggle" class="nav-button dark-mode-toggle">
+          <i class="fas fa-moon"></i> Dark mode
+        </button>
+      </div>
+    </nav>
 
-    <label for="nivelAtual">Current Paragon Level:</label>
-    <input type="number" id="nivelAtual" min="1" max="300" value="1">
+    <div class="container">
+      <h1>Paragon 300 Calculator</h1>
 
-    <label for="pitTier">Select Pit Difficulty:</label>
-    <select id="pitTier">
-      <option value="65">Pit 60 (5883075 XP)</option>   
-      <option value="70">Pit 70 (6191164 XP)</option>
-      <option value="75">Pit 75 (6493035 XP)</option>
-      <option value="80">Pit 80 (6794906 XP)</option>
-      <option value="85">Pit 85 (7096778 XP)</option>
-      <option value="90">Pit 90 (7401081 XP)</option>
-      <option value="95">Pit 95 (7700520 XP)</option>
-      <option value="100">Pit 100 (7950000 XP)</option>
-      <option value="110">Pit 110 (8592620 XP)</option>
-      <option value="120">Pit 120 (9197734 XP)</option>
-      <option value="130">Pit 130 (9798301 XP)</option>
-      <option value="140">Pit 140 (10401143 XP)</option>
-      <option value="150">Pit 150 (11003985 XP)</option>
-    </select>   
-    <label for="tempoPit">Time per Pit run (in minutes):</label>
-    <input type="number" id="tempoPit" min="1" value="3">
+      <div class="form-group">
+        <label for="currentLevel">Your Current Paragon Level (1-300)</label>
+        <input type="number" id="currentLevel" min="1" max="300" />
+        <small>I do not recommend using it before 240</small>
+      </div>
 
-    <div class="checkboxes">
-      <label><input type="checkbox" id="elixir"> Using Elixir (+5%)</label>
-      <label><input type="checkbox" id="incenso"> Using Incense (+8%)</label>
+      <div class="form-group">
+        <label for="pitTier">Pit Tier</label>
+        <select id="pitTier"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="tempoPit"> Time to complete Pit (minutes)</label>
+        <input type="number" id="tempoPit" min="0.1" max="15" step="0.1" />
+        <small> Best efficiency under 2 minutes</small>
+      </div>
+
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="elixir" />
+          <label for="elixir">Elixir (+5%XP)</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="incense" />
+          <label for="incense">Incense (+8%XP)</label>
+        </div>
+      </div>
+
+      <button onclick="calcular()">Calculate</button>
+
+      <div class="result">
+        <h3>Results:</h3>
+        <p id="xpFaltante">Remaining XP for Paragon 300: --</p>
+        <p id="pitsNecessarios">Pits required: --</p>
+        <p id="tempoTotal">Estimated total time: --</p>
+        <p id="eficiencia">Efficiency: --</p>
+      </div>
     </div>
 
-    <button onclick="calcular()">Calculate</button>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2023 Calculadora Paragon. Todos os direitos reservados Jorge
+          Felipe.
+        </p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/felipesiper" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/livehass" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://jorgefelipe.info/" target="_blank"
+            ><i class="fas fa-globe"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
 
-    <div id="results">
-      <p id="xpFaltante"></p>
-      <p id="pitsNecessarios"></p>
-      <p id="tempoTotal"></p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
